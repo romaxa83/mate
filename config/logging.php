@@ -126,6 +126,12 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'eyes' => [
+            'enable' => env('ENABLE_LOGGER_INFO', false),
+            'driver' => 'single',
+            'path' => storage_path('logs/info-laravel.log'),
+        ],
     ],
 
 ];
