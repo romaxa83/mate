@@ -9,7 +9,7 @@ class EnumHelper
         return array_map(fn($case) => $case->value, $enum::cases());
     }
 
-    public static function valuesWithLabel($enum): array
+    public static function listForSelect($enum): array
     {
         return array_reduce($enum::cases(), function($result, $case){
             $result[$case->value] = $case->label();
@@ -20,7 +20,7 @@ class EnumHelper
     public static function resourceList($enum): array
     {
         $res = [];
-        $data = self::valuesWithLabel($enum);
+        $data = self::listForSelect($enum);
 
         foreach ($data as $key => $title){
             $res[] = [

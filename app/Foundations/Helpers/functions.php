@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 if (!function_exists('logger_info')) {
 
     function logger_info($message, array $context = [], bool $important = true)
@@ -108,5 +110,12 @@ if (!function_exists('is_testing')) {
     function is_testing(): bool
     {
         return config('app.env') === 'testing';
+    }
+}
+
+if (!function_exists('auth_user')) {
+    function auth_user(): \App\Models\Users\User|Illuminate\Contracts\Auth\Authenticatable
+    {
+        return Auth::user();
     }
 }

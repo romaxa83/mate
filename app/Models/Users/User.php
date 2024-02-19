@@ -23,6 +23,9 @@ use Database\Factories\Users\UserFactory;
 
 class User extends BaseAuthenticatableModel
 {
+    public const TABLE = 'users';
+    protected $table = self::TABLE;
+
     /** @var array<int, string> */
     protected $fillable = [
         'name',
